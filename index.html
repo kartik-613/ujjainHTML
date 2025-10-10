@@ -1,327 +1,446 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StayBNB</title>
-  <script src="https://kit.fontawesome.com/c71da0c119.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Optional: Poppins font */
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-    body { font-family: 'Poppins', sans-serif; }
-  </style>
-</head>
-<body class="bg-white text-gray-800">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StayBNB</title>
+    <script
+      src="https://kit.fontawesome.com/c71da0c119.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Optional: Poppins font */
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-800">
+    <!-- Header Section -->
+    <header
+      class="relative w-full sm:max-w-full max-h-[40vh] sm:min-h-[100vh] bg-contain sm:bg-cover bg-center"
+      style="
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+          ),
+          url('images/banner4.jpeg');
+      "
+    >
+      <!-- Nav -->
+      <nav
+        class="px-6 py-4 sm:px-[7%] sm:py-5 flex items-center justify-between relative"
+      >
+        <!-- Logo -->
+        <img
+          src="images/logo.png"
+          alt="logo"
+          class="w-28 sm:w-36 cursor-pointer"
+        />
 
-  <!-- Header Section -->
-<header class="relative w-screen max-h-[40vh] sm:min-h-[100vh] bg-contain sm:bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/banner4.jpeg');">
-  <!-- Nav -->
-<nav class=" px-6 py-4 sm:px-[7%] sm:py-5 flex items-center justify-between relative">
-  <!-- Logo -->
-  <img src="images/logo.png" alt="logo" class="w-28 sm:w-36 cursor-pointer">
+        <!-- Hamburger Button (Mobile) -->
+        <button id="hamburger" class="sm:hidden text-white focus:outline-none">
+          <svg
+            class="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
 
-  <!-- Hamburger Button (Mobile) -->
-  <button id="hamburger" class="sm:hidden text-white focus:outline-none">
-    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-    </svg>
-  </button>
+        <!-- Menu Links -->
+        <ul
+          id="menu"
+          class="flex flex-col sm:flex-row gap-y-2 sm:gap-y-0 sm:gap-x-8 text-white text-lg text-center sm:text-left mb-4 sm:mb-0 absolute sm:static top-full left-0 w-full sm:w-auto bg-[rgb(149,141,130)] sm:bg-transparent transition-all duration-300 overflow-hidden max-h-0 sm:max-h-full"
+        >
+          <li class="relative">
+            <a
+              href="#"
+              class="after:absolute after:bottom-[-6px] after:left-1/2 after:w-6 after:h-0.5 after:bg-white after:rounded-full"
+              >Popular Places</a
+            >
+          </li>
+          <li><a href="#">Travel Outside</a></li>
+          <li><a href="#">Online Packages</a></li>
+          <li class="sm:hidden">
+            <a
+              href="#"
+              class="bg-white text-black px-5 py-2 rounded-full text-sm inline-block mt-2"
+              >Register Now</a
+            >
+          </li>
+        </ul>
 
-  <!-- Menu Links -->
-  <ul id="menu" class="flex flex-col sm:flex-row gap-y-2 sm:gap-y-0 sm:gap-x-8 text-white text-lg text-center sm:text-left mb-4 sm:mb-0 absolute sm:static top-full left-0 w-full sm:w-auto bg-[rgb(149,141,130)] sm:bg-transparent transition-all duration-300 overflow-hidden max-h-0 sm:max-h-full">
-    <li class="relative"><a href="#" class="after:absolute after:bottom-[-6px] after:left-1/2 after:w-6 after:h-0.5 after:bg-white after:rounded-full">Popular Places</a></li>
-    <li><a href="#">Travel Outside</a></li>
-    <li><a href="#">Online Packages</a></li>
-    <li class="sm:hidden"><a href="#" class="bg-white text-black px-5 py-2 rounded-full text-sm inline-block mt-2">Register Now</a></li>
-  </ul>
+        <!-- Register Button (Desktop) -->
+        <a
+          href="#"
+          class="bg-white text-black px-5 py-2 rounded-full text-sm hidden sm:inline-block"
+          >Register Now</a
+        >
+      </nav>
 
-  <!-- Register Button (Desktop) -->
-  <a href="#" class="bg-white text-black px-5 py-2 rounded-full text-sm hidden sm:inline-block">Register Now</a>
-</nav>
-
-  <!-- Hero Text & Search -->
-  <div class="text-center px-6 sm:px-[7%] pt-[20%] sm:pt-[31%]">
-    <h1 class="text-2xl sm:text-[3vw] font-semibold text-gray-900 sm:mt-20 mt-16 sm:mb-8">Find your next stay</h1>
-
-    <!-- Search Bar -->
- <!-- <div class="bg-white rounded-full mx-auto w-full sm:w-4/5 p-4"> 
-  <form class="flex flex-col sm:flex-row flex-wrap items-center gap-4 sm:gap-2">
-
-    <div class="flex-1 min-w-[120px]">
-      <label class="font-semibold block text-sm sm:text-base mb-1">Location</label>
-      <input type="text" placeholder="Where are you going" class="w-full bg-transparent border border-gray-300 rounded-md px-2 py-1 outline-none text-sm sm:text-base"/>
-    </div>
-    
-
-    <div class="flex-1 min-w-[120px]">
-      <label class="font-semibold block text-sm sm:text-base mb-1">Check In</label>
-      <input type="text" placeholder="Add Date" class="w-full bg-transparent border border-gray-300 rounded-md px-2 py-1 outline-none text-sm sm:text-base"/>
-    </div>
-    
-
-    <div class="flex-1 min-w-[120px]">
-      <label class="font-semibold block text-sm sm:text-base mb-1">Check Out</label>
-      <input type="text" placeholder="Add Date" class="w-full bg-transparent border border-gray-300 rounded-md px-2 py-1 outline-none text-sm sm:text-base"/>
-    </div>
-    
-
-    <div class="flex-1 min-w-[120px]">
-      <label class="font-semibold block text-sm sm:text-base mb-1">Guest</label>
-      <input type="text" placeholder="Add Guest" class="w-full bg-transparent border border-gray-300 rounded-md px-2 py-1 outline-none text-sm sm:text-base"/>
-    </div>
-    
-
-    <button type="submit" class="bg-red-500 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mt-3 sm:mt-0 self-end">
-      <img src="images/search.png" alt="search" class="w-4 sm:w-5">
-    </button>
-    
-  </form>
-</div>  -->
-
-  </div>
-</header>
-
-
-  <!-- Main Container -->
-  <main class="px-[7%]">
-        <!-- Search Bar -->
- <div class="bg-white rounded-full mx-auto w-full sm:w-4/5 p-4"> 
-  <form class="flex flex-col sm:flex-row flex-wrap items-center gap-4 sm:gap-2">
-
-    <div class="flex-1 min-w-[120px]">
-      <label class="font-semibold block text-sm sm:text-base mb-1">Location</label>
-      <input type="text" placeholder="Where are you going" class="w-full bg-transparent border border-gray-300 rounded-md px-2 py-1 outline-none text-sm sm:text-base"/>
-    </div>
-    
-
-    <div class="flex-1 min-w-[120px]">
-      <label class="font-semibold block text-sm sm:text-base mb-1">Check In</label>
-      <input type="text" placeholder="Add Date" class="w-full bg-transparent border border-gray-300 rounded-md px-2 py-1 outline-none text-sm sm:text-base"/>
-    </div>
-    
-
-    <div class="flex-1 min-w-[120px]">
-      <label class="font-semibold block text-sm sm:text-base mb-1">Check Out</label>
-      <input type="text" placeholder="Add Date" class="w-full bg-transparent border border-gray-300 rounded-md px-2 py-1 outline-none text-sm sm:text-base"/>
-    </div>
-    
-
-    <div class="flex-1 min-w-[120px]">
-      <label class="font-semibold block text-sm sm:text-base mb-1">Guest</label>
-      <input type="text" placeholder="Add Guest" class="w-full bg-transparent border border-gray-300 rounded-md px-2 py-1 outline-none text-sm sm:text-base"/>
-    </div>
-    
-    <div class="flex-1 min-w-[190px]">
-    <button type="submit" class="bg-red-500 text-white w-full h-10 sm:w-24 sm:h-14 rounded-xl flex items-center justify-center mt-3 sm:mt-0 self-end">Search 
-      <!-- <img src="images/search.png" alt="search" class="pl-5 sm:pl-2 w-4 sm:w-5"> -->
-    </button>
-    </div>
-  </form>
-</div> 
-
-
-
-
-<!-- Our Packages Section -->
-<section class="py-8 bg-cover bg-center bg-[]">
-  <div class="max-w-7xl mx-auto">
-    <!-- Heading -->
-    <div class="mb-12 text-center">
-      <h1 class="text-3xl sm:text-4xl font-semibold text-gray-700">Our Packages</h1>
-      <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mt-2">Explore Our Mahakal Packages</h2>
-    </div>
-
-    <!-- Packages Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-
-  <!-- Card 1 -->
-  <div class="bg-white/10 backdrop-blur-md text-white rounded-2xl p-8 flex flex-col justify-between shadow-lg hover:shadow-2xl transition duration-300 border border-gray-300/20 text-left">
-    <div>
-      <h2 class="text-2xl font-semibold text-gray-700 mb-4">Couple Package</h2>
-      <div class="border-b border-gray-500 pb-4 mb-4">
-        <h3 class="text-3xl font-bold text-gray-900">
-          ₹11,000
-          <span class="text-gray-700 text-lg font-normal">/for 2 People</span>
-        </h3>
+      <!-- Hero Text & Search -->
+      <div class="text-center px-6 sm:px-[7%] pt-[20%] sm:pt-[31%]">
+        <h1
+          class="text-2xl sm:text-[3vw] font-semibold text-gray-900 sm:bottom-1 mt-16 sm:mb-8"
+        >
+          Find your next stay
+        </h1>
       </div>
-      <ul class="space-y-2 text-gray-700">
-        <li>✔️ 2 Days | 1 Night</li>
-        <li>✔️ Mahakal Darshan | Omkareshwar Jyotirlinga</li>
-        <li>✔️ A/C Cab | 3-Star Hotel | Breakfast Included</li>
-        <li>✔️ Pickup & Drop from Ujjain Railway/Bus Stand</li>
-        <li>✔️ 2 Complimentary Breakfasts</li>
-        <li>✔️ All temple visit fees and Narmada Darshan included</li>
-      </ul>
-    </div>
-    <a href="#" class="mt-6 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300 self-start">Book Now</a>
-  </div>
+    </header>
 
-  <!-- Card 2 -->
-  <div class="bg-white/10 backdrop-blur-md text-white rounded-2xl p-8 flex flex-col justify-between shadow-lg hover:shadow-2xl transition duration-300 border border-gray-300/20 text-left">
-    <div>
-      <h2 class="text-2xl font-semibold text-gray-700 mb-4">Family Package</h2>
-      <div class="border-b border-gray-500 pb-4 mb-4">
-        <h3 class="text-3xl font-bold text-gray-900">
-          ₹14,000
-          <span class="text-gray-700 text-lg font-normal">/for 4 People</span>
-        </h3>
+    <!-- Main Container -->
+    <main class="px-[7%]">
+      <!-- Search Bar -->
+      <div class="bg-white rounded-full mx-auto w-full sm:w-4/5 p-4">
+        <form
+          class="flex flex-col sm:flex-row flex-wrap items-center gap-4 sm:gap-2"
+        >
+          <div class="flex-1 min-w-[120px]">
+            <label class="font-semibold block text-sm sm:text-base mb-1"
+              >Location</label
+            >
+            <input
+              type="text"
+              placeholder="Where are you going"
+              class="w-full bg-transparent border border-gray-300 rounded-md px-2 py-1 outline-none text-sm sm:text-base"
+            />
+          </div>
+
+          <div class="flex-1 min-w-[120px]">
+            <label class="font-semibold block text-sm sm:text-base mb-1"
+              >Check In</label
+            >
+            <input
+              type="text"
+              placeholder="Add Date"
+              class="w-full bg-transparent border border-gray-300 rounded-md px-2 py-1 outline-none text-sm sm:text-base"
+            />
+          </div>
+
+          <div class="flex-1 min-w-[120px]">
+            <label class="font-semibold block text-sm sm:text-base mb-1"
+              >Check Out</label
+            >
+            <input
+              type="text"
+              placeholder="Add Date"
+              class="w-full bg-transparent border border-gray-300 rounded-md px-2 py-1 outline-none text-sm sm:text-base"
+            />
+          </div>
+
+          <div class="flex-1 min-w-[120px]">
+            <label class="font-semibold block text-sm sm:text-base mb-1"
+              >Guest</label
+            >
+            <input
+              type="text"
+              placeholder="Add Guest"
+              class="w-full bg-transparent border border-gray-300 rounded-md px-2 py-1 outline-none text-sm sm:text-base"
+            />
+          </div>
+
+          <div class="flex-1 min-w-[190px]">
+            <button
+              type="submit"
+              class="bg-red-500 text-white w-full h-10 sm:w-24 sm:h-14 rounded-xl flex items-center justify-center mt-3 sm:mt-0 self-end"
+            >
+              Search
+              <!-- <img src="images/search.png" alt="search" class="pl-5 sm:pl-2 w-4 sm:w-5"> -->
+            </button>
+          </div>
+        </form>
       </div>
-      <ul class="space-y-2 text-gray-700">
-        <li>✔️ 2 Days | 1 Night</li>
-        <li>✔️ Mahakal Darshan | Omkareshwar Jyotirlinga</li>
-        <li>✔️ A/C Cab | 3-Star Hotel | Breakfast Included</li>
-        <li>✔️ Pickup & Drop from Ujjain Railway/Bus Stand</li>
-        <li>✔️ 4 Complimentary Breakfasts</li>
-        <li>✔️ All temple visit fees and Narmada Darshan included</li>
-      </ul>
-    </div>
-    <a href="#" class="mt-6 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300 self-start">Book Now</a>
-  </div>
 
-  <!-- Card 3 -->
-  <div class="bg-white/10 backdrop-blur-md text-white rounded-2xl p-8 flex flex-col justify-between shadow-lg hover:shadow-2xl transition duration-300 border border-gray-300/20 text-left">
-    <div>
-      <h2 class="text-2xl font-semibold text-gray-700 mb-4">Small Family</h2>
-      <div class="border-b border-gray-500 pb-4 mb-4">
-        <h3 class="text-3xl font-bold text-gray-900">
-          ₹18,000
-          <span class="text-gray-700 text-lg font-normal">/for 5 People</span>
-        </h3>
+      <!-- Our Packages Section -->
+      <section class="py-8 bg-cover bg-center bg-[]">
+        <div class="max-w-7xl mx-auto">
+          <!-- Heading -->
+          <div class="mb-12 text-center">
+            <h1 class="text-3xl sm:text-4xl font-semibold text-gray-700">
+              Our Packages
+            </h1>
+            <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mt-2">
+              Explore Our Mahakal Packages
+            </h2>
+          </div>
+
+          <!-- Packages Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Card 1 -->
+            <div
+              class="bg-white/10 backdrop-blur-md text-white rounded-2xl p-8 flex flex-col justify-between shadow-lg hover:shadow-2xl transition duration-300 border border-gray-300/20 text-left"
+            >
+              <div>
+                <h2 class="text-2xl font-semibold text-gray-700 mb-4">
+                  Couple Package
+                </h2>
+                <div class="border-b border-gray-500 pb-4 mb-4">
+                  <h3 class="text-3xl font-bold text-gray-900">
+                    ₹11,000
+                    <span class="text-gray-700 text-lg font-normal"
+                      >/for 2 People</span
+                    >
+                  </h3>
+                </div>
+                <ul class="space-y-2 text-gray-700">
+                  <li>✔️ 2 Days | 1 Night</li>
+                  <li>✔️ Mahakal Darshan | Omkareshwar Jyotirlinga</li>
+                  <li>✔️ A/C Cab | 3-Star Hotel | Breakfast Included</li>
+                  <li>✔️ Pickup & Drop from Ujjain Railway/Bus Stand</li>
+                  <li>✔️ 2 Complimentary Breakfasts</li>
+                  <li>✔️ All temple visit fees and Narmada Darshan included</li>
+                </ul>
+              </div>
+              <a
+                href="#"
+                class="mt-6 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300 self-start"
+                >Book Now</a
+              >
+            </div>
+
+            <!-- Card 2 -->
+            <div
+              class="bg-white/10 backdrop-blur-md text-white rounded-2xl p-8 flex flex-col justify-between shadow-lg hover:shadow-2xl transition duration-300 border border-gray-300/20 text-left"
+            >
+              <div>
+                <h2 class="text-2xl font-semibold text-gray-700 mb-4">
+                  Family Package
+                </h2>
+                <div class="border-b border-gray-500 pb-4 mb-4">
+                  <h3 class="text-3xl font-bold text-gray-900">
+                    ₹14,000
+                    <span class="text-gray-700 text-lg font-normal"
+                      >/for 4 People</span
+                    >
+                  </h3>
+                </div>
+                <ul class="space-y-2 text-gray-700">
+                  <li>✔️ 2 Days | 1 Night</li>
+                  <li>✔️ Mahakal Darshan | Omkareshwar Jyotirlinga</li>
+                  <li>✔️ A/C Cab | 3-Star Hotel | Breakfast Included</li>
+                  <li>✔️ Pickup & Drop from Ujjain Railway/Bus Stand</li>
+                  <li>✔️ 4 Complimentary Breakfasts</li>
+                  <li>✔️ All temple visit fees and Narmada Darshan included</li>
+                </ul>
+              </div>
+              <a
+                href="#"
+                class="mt-6 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300 self-start"
+                >Book Now</a
+              >
+            </div>
+
+            <!-- Card 3 -->
+            <div
+              class="bg-white/10 backdrop-blur-md text-white rounded-2xl p-8 flex flex-col justify-between shadow-lg hover:shadow-2xl transition duration-300 border border-gray-300/20 text-left"
+            >
+              <div>
+                <h2 class="text-2xl font-semibold text-gray-700 mb-4">
+                  Small Family
+                </h2>
+                <div class="border-b border-gray-500 pb-4 mb-4">
+                  <h3 class="text-3xl font-bold text-gray-900">
+                    ₹18,000
+                    <span class="text-gray-700 text-lg font-normal"
+                      >/for 5 People</span
+                    >
+                  </h3>
+                </div>
+                <ul class="space-y-2 text-gray-700">
+                  <li>✔️ 3 Days | 2 Nights</li>
+                  <li>✔️ Mahakal Darshan | Omkareshwar Jyotirlinga</li>
+                  <li>✔️ A/C Cab | 4-Star Hotel | Breakfast Included</li>
+                  <li>✔️ Pickup & Drop from Indore/Ujjain</li>
+                  <li>✔️ 3 Complimentary Breakfasts</li>
+                  <li>✔️ All temple visit fees and Narmada Darshan included</li>
+                </ul>
+              </div>
+              <a
+                href="#"
+                class="mt-6 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300 self-start"
+                >Book Now</a
+              >
+            </div>
+
+            <!-- Card 4 -->
+            <div
+              class="bg-white/10 backdrop-blur-md text-white rounded-2xl p-8 flex flex-col justify-between shadow-lg hover:shadow-2xl transition duration-300 border border-gray-300/20 text-left"
+            >
+              <div>
+                <h2 class="text-2xl font-semibold text-gray-700 mb-4">
+                  Big Family
+                </h2>
+                <div class="border-b border-gray-500 pb-4 mb-4">
+                  <h3 class="text-3xl font-bold text-gray-900">
+                    ₹22,000
+                    <span class="text-gray-700 text-lg font-normal"
+                      >/for 7 People</span
+                    >
+                  </h3>
+                </div>
+                <ul class="space-y-2 text-gray-700">
+                  <li>✔️ 3 Days | 2 Nights</li>
+                  <li>✔️ Mahakal | Omkareshwar | Maheshwar Darshan</li>
+                  <li>✔️ A/C Cab | Deluxe Hotel | Breakfast & Dinner</li>
+                  <li>✔️ Pickup & Drop from Indore/Ujjain</li>
+                  <li>✔️ Complimentary Snacks & Water Bottles</li>
+                  <li>✔️ All temple visit fees and Narmada boating included</li>
+                </ul>
+              </div>
+              <a
+                href="#"
+                class="mt-6 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300 self-start"
+                >Book Now</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trending Section -->
+      <h2 class="text-2xl font-medium mt-12 mb-5 text-gray-800">
+        Trending Places Ujjain
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img
+            src="images/four.jpg"
+            alt="Dubai"
+            class="w-full h-64 object-cover"
+          />
+          <div class="p-3">
+            <h3 class="font-semibold mt-2 text-center">ujjain-1</h3>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img
+            src="images/two.jpg"
+            alt="New York"
+            class="w-full h-64 object-cover"
+          />
+          <div class="p-3">
+            <h3 class="font-semibold mt-2 text-center">ujjain-2</h3>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img
+            src="images/one.jpg"
+            alt="Paris"
+            class="w-full h-64 object-cover"
+          />
+          <div class="p-3">
+            <h3 class="font-semibold mt-2 text-center">ujjain-3</h3>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img
+            src="images/three.jpg"
+            alt="New Delhi"
+            class="w-full h-64 object-cover"
+          />
+          <div class="p-3">
+            <h3 class="font-semibold mt-2 text-center">ujjain-4</h3>
+          </div>
+        </div>
       </div>
-      <ul class="space-y-2 text-gray-700">
-        <li>✔️ 3 Days | 2 Nights</li>
-        <li>✔️ Mahakal Darshan | Omkareshwar Jyotirlinga</li>
-        <li>✔️ A/C Cab | 4-Star Hotel | Breakfast Included</li>
-        <li>✔️ Pickup & Drop from Indore/Ujjain</li>
-        <li>✔️ 3 Complimentary Breakfasts</li>
-        <li>✔️ All temple visit fees and Narmada Darshan included</li>
-      </ul>
-    </div>
-    <a href="#" class="mt-6 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300 self-start">Book Now</a>
-  </div>
 
-  <!-- Card 4 -->
-  <div class="bg-white/10 backdrop-blur-md text-white rounded-2xl p-8 flex flex-col justify-between shadow-lg hover:shadow-2xl transition duration-300 border border-gray-300/20 text-left">
-    <div>
-      <h2 class="text-2xl font-semibold text-gray-700 mb-4">Big Family</h2>
-      <div class="border-b border-gray-500 pb-4 mb-4">
-        <h3 class="text-3xl font-bold text-gray-900">
-          ₹22,000
-          <span class="text-gray-700 text-lg font-normal">/for 7 People</span>
-        </h3>
+      <!-- Traveller Stories -->
+      <h2 class="text-2xl font-medium mt-12 mb-5 text-gray-800">
+        Travellers Stories
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
+        <div class="relative text-center">
+          <img src="images/lastthree.jpg" alt="" class="w-full rounded-lg" />
+          <p
+            class="absolute bottom-1 flex justify-center px-8 text-white text-lg"
+          >
+            Feel the divine energy at every corner of Ujjain — where time pauses
+            at the banks of the Shipra
+          </p>
+        </div>
+        <div class="relative text-center">
+          <img src="images/lasttwo.jpg" alt="" class="w-full rounded-lg" />
+          <p
+            class="absolute bottom-1 flex justify-center px-8 text-white text-lg"
+          >
+            Experience peace and power together at Omkareshwar — where the
+            sacred Narmada flows in the shape of Om
+          </p>
+        </div>
+        <div class="relative text-center">
+          <img src="images/lastone.jpg" alt="" class="w-full rounded-lg" />
+          <p
+            class="absolute bottom-1 flex justify-center px-8 text-white text-lg"
+          >
+            Witness royal serenity in Maheshwar — where history echoes through
+            the ghats and temples
+          </p>
+        </div>
       </div>
-      <ul class="space-y-2 text-gray-700">
-        <li>✔️ 3 Days | 2 Nights</li>
-        <li>✔️ Mahakal | Omkareshwar | Maheshwar Darshan</li>
-        <li>✔️ A/C Cab | Deluxe Hotel | Breakfast & Dinner</li>
-        <li>✔️ Pickup & Drop from Indore/Ujjain</li>
-        <li>✔️ Complimentary Snacks & Water Bottles</li>
-        <li>✔️ All temple visit fees and Narmada boating included</li>
-      </ul>
-    </div>
-    <a href="#" class="mt-6 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300 self-start">Book Now</a>
-  </div>
 
-</div>
-
-  </div>
-</section>
-
-
-
-
-
-<!-- Trending Section -->
-<h2 class="text-2xl font-medium mt-12 mb-5 text-gray-800">Trending Places Ujjain</h2>
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-  <!-- Card 1 -->
-  <div class="bg-white rounded-lg shadow-md overflow-hidden">
-    <img src="images/four.jpg" alt="Dubai" class="w-full h-64 object-cover">
-    <div class="p-3">
-      <h3 class="font-semibold mt-2 text-center">ujjain-1</h3>
-    </div>
-  </div>
-
-  <!-- Card 2 -->
-  <div class="bg-white rounded-lg shadow-md overflow-hidden">
-    <img src="images/two.jpg" alt="New York" class="w-full h-64 object-cover">
-    <div class="p-3">
-      <h3 class="font-semibold mt-2 text-center">ujjain-2</h3>
-    </div>
-  </div>
-
-  <!-- Card 3 -->
-  <div class="bg-white rounded-lg shadow-md overflow-hidden">
-    <img src="images/one.jpg" alt="Paris" class="w-full h-64 object-cover">
-    <div class="p-3">
-      <h3 class="font-semibold mt-2 text-center">ujjain-3</h3>
-    </div>
-  </div>
-
-  <!-- Card 4 -->
-  <div class="bg-white rounded-lg shadow-md overflow-hidden">
-    <img src="images/three.jpg" alt="New Delhi" class="w-full h-64 object-cover">
-    <div class="p-3">
-      <h3 class="font-semibold mt-2 text-center">ujjain-4</h3>
-    </div>
-  </div>
-</div>
- 
-
-
-
-    <!-- Traveller Stories -->
-    <h2 class="text-2xl font-medium mt-12 mb-5 text-gray-800">Travellers Stories</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
-      <div class="relative text-center">
-        <img src="images/lastthree.jpg" alt="" class="w-full rounded-lg">
-        <p class="absolute bottom-1 flex justify-center px-8 text-white text-lg">Feel the divine energy at every corner of Ujjain — where time pauses at the banks of the Shipra</p>
+      <!-- Start Button -->
+      <div class="text-center mb-12">
+        <a
+          href="#"
+          class="bg-red-500 text-white px-8 py-4 rounded-full text-xl inline-block"
+          >Start making money</a
+        >
       </div>
-      <div class="relative text-center">
-        <img src="images/lasttwo.jpg" alt="" class="w-full rounded-lg">
-        <p class="absolute bottom-1 flex justify-center px-8 text-white text-lg">Experience peace and power together at Omkareshwar — where the sacred Narmada flows in the shape of Om</p>
+
+      <!-- About Section -->
+      <div class="text-center mb-12 text-gray-700">
+        <h2 class="text-3xl font-medium mb-4">About StayBNB</h2>
+        <p>
+          Welcome to Sacred Trails, your trusted travel companion for exploring
+          the divine destinations of Ujjain, Omkareshwar, and Maheshwar. From
+          the powerful vibrations of Mahakaleshwar Jyotirlinga in Ujjain to the
+          sacred island of Omkareshwar shaped like “Om,” and the royal ghats of
+          Maheshwar echoing with history and devotion — each place offers a
+          perfect blend of spirituality, culture, and serenity. Our well-curated
+          packages ensure a comfortable and meaningful journey with quality
+          stays, guided visits, and peaceful experiences along the sacred banks
+          of the Narmada.
+        </p>
       </div>
-      <div class="relative text-center">
-        <img src="images/lastone.jpg" alt="" class="w-full rounded-lg">
-        <p class="absolute bottom-1 flex justify-center px-8 text-white text-lg">Witness royal serenity in Maheshwar — where history echoes through the ghats and temples</p>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center mb-12">
+      <div class="flex justify-center gap-4 text-gray-500 text-2xl mb-4">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
       </div>
-    </div>
+      <hr class="border-gray-400 mb-4" />
+      <p class="text-gray-500 pb-4">Visit @ 2025, Easy Tutorials.</p>
+    </footer>
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const menu = document.getElementById("menu");
 
-    <!-- Start Button -->
-    <div class="text-center mb-12">
-      <a href="#" class="bg-red-500 text-white px-8 py-4 rounded-full text-xl inline-block">Start making money</a>
-    </div>
-
-    <!-- About Section -->
-    <div class="text-center mb-12 text-gray-700">
-      <h2 class="text-3xl font-medium mb-4">About StayBNB</h2>
-      <p>Welcome to Sacred Trails, your trusted travel companion for exploring the divine destinations of Ujjain, Omkareshwar, and Maheshwar. From the powerful vibrations of Mahakaleshwar Jyotirlinga in Ujjain to the sacred island of Omkareshwar shaped like “Om,” and the royal ghats of Maheshwar echoing with history and devotion — each place offers a perfect blend of spirituality, culture, and serenity. Our well-curated packages ensure a comfortable and meaningful journey with quality stays, guided visits, and peaceful experiences along the sacred banks of the Narmada.</p>
-    </div>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="text-center mb-12">
-    <div class="flex justify-center gap-4 text-gray-500 text-2xl mb-4">
-      <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-      <a href="#"><i class="fa-brands fa-youtube"></i></a>
-      <a href="#"><i class="fa-brands fa-twitter"></i></a>
-      <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a href="#"><i class="fa-brands fa-instagram"></i></a>
-    </div>
-    <hr class="border-gray-400 mb-4">
-    <p class="text-gray-500 pb-4">Visit @ 2025, Easy Tutorials.</p>
-  </footer>
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const menu = document.getElementById('menu');
-
-  hamburger.addEventListener('click', () => {
-    menu.classList.toggle('max-h-0'); // hide
-    menu.classList.toggle('max-h-96'); // show
-  });
-</script>
-
-</body>
+      hamburger.addEventListener("click", () => {
+        menu.classList.toggle("max-h-0"); // hide
+        menu.classList.toggle("max-h-96"); // show
+      });
+    </script>
+  </body>
 </html>
